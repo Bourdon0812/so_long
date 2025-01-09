@@ -6,7 +6,7 @@
 /*   By: ilbonnev <ilbonnev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:26:06 by ilbonnev          #+#    #+#             */
-/*   Updated: 2025/01/09 15:28:40 by ilbonnev         ###   ########.fr       */
+/*   Updated: 2025/01/09 17:00:35 by ilbonnev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	map_check_collectibles(char **map, t_game *game)
 		col = 0;
 		while (map[row][col] != '\0')
 		{
-			if (map[row][col] == 'E')
+			if (map[row][col] == 'C')
 			{
 				nb_collectible++;
 				game->nb_collectibles++;

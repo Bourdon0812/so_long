@@ -6,7 +6,7 @@
 /*   By: ilbonnev <ilbonnev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:40:01 by ilbonnev          #+#    #+#             */
-/*   Updated: 2025/01/09 16:19:42 by ilbonnev         ###   ########.fr       */
+/*   Updated: 2025/01/09 16:46:41 by ilbonnev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct	s_texture
 
 typedef struct	s_textures
 {
-	t_texture	antagonist_texture;
 	t_texture	escape_texture;
 	t_texture	item_texture;
 	t_texture	player_texture;

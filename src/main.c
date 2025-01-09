@@ -6,7 +6,7 @@
 /*   By: ilbonnev <ilbonnev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 20:35:29 by ilbonnev          #+#    #+#             */
-/*   Updated: 2025/01/08 21:53:14 by ilbonnev         ###   ########.fr       */
+/*   Updated: 2025/01/09 16:49:26 by ilbonnev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,23 @@ int close_window(void *param)
 
 int	stop_game(t_game *game)
 {
-	if (game->player.collected_count && game->nb_collectibles)
+	if (game->player.collected_count != NULL && game->nb_collectibles != NULL)
 		if (game->player.collected_count == game->nb_collectibles)
+		{
 			ft_putstr_fd("win !!\n", 1);
+			mlx_destroy_image(game->render.mlx, 
+					game->render.textures.escape_texture.img);
+			mlx_destroy_image(game->render.mlx, 
+					game->render.textures.item_texture.img);
+			mlx_destroy_image(game->render.mlx, 
+					game->render.textures.player_texture.img);
+			mlx_destroy_image(game->render.mlx, 
+					game->render.textures.wall_texture.img);
+			mlx_destroy_image(game->render.mlx, 
+					game->render.textures.water_texture.img);
+			mlx_destroy_window(game->render.mlx, game->render.window);
+   			mlx_destroy_display(game->render.mlx);
+		}
 	exit(EXIT_FAILURE);
 	return (1);
 }
