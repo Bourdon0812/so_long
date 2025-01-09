@@ -6,7 +6,7 @@
 /*   By: ilbonnev <ilbonnev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:40:01 by ilbonnev          #+#    #+#             */
-/*   Updated: 2025/01/08 21:24:32 by ilbonnev         ###   ########.fr       */
+/*   Updated: 2025/01/09 16:19:42 by ilbonnev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct	s_render
 void	render_tile(t_game *game, char tile, t_vector2 pos);
 void	render_map(t_game *game);
 void	load_texture(void *mlx, t_texture *texture, char *path, t_game *game);
+int		init_render2(t_game *game, t_textures *textures, void *mlx);
 int		init_render(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ilbonnev <ilbonnev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:26:06 by ilbonnev          #+#    #+#             */
-/*   Updated: 2025/01/09 14:02:24 by ilbonnev         ###   ########.fr       */
+/*   Updated: 2025/01/09 15:28:40 by ilbonnev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,26 @@ int	map_check_collectibles(char **map, t_game *game)
 	return (1);
 }
 
-void	flood_fill(char **map, int x, int y, int rows, int cols)
+void	flood_fill(char **map, t_vector2 pos, int rows, int cols)
 {
-	if (x < 0 || x >= cols || y < 0 || y >= rows || map[y][x] == '1' ||
-		map[y][x] == 'V')
+	t_vector2	npos;
+
+	if (pos.x < 0 || pos.x >= cols || pos.y < 0 || pos.y >= rows
+		|| map[pos.y][pos.x] == '1' || map[pos.y][pos.x] == 'V')
 		return ;
-	map[y][x] = 'V';
-	flood_fill(map, x + 1, y, rows, cols);
-	flood_fill(map, x - 1, y, rows, cols);
-	flood_fill(map, x, y + 1, rows, cols);
-	flood_fill(map, x, y - 1, rows, cols);
+	map[pos.y][pos.x] = 'V';
+	npos.x = pos.x + 1;
+	npos.y = pos.y;
+	flood_fill(map, npos, rows, cols);
+	npos.x = pos.x - 1;
+	npos.y = pos.y;
+	flood_fill(map, npos, rows, cols);
+	npos.x = pos.x;
+	npos.y = pos.y + 1;
+	flood_fill(map, npos, rows, cols);
+	npos.x = pos.x;
+	npos.y = pos.y - 1;
+	flood_fill(map, npos, rows, cols);
 }
 
 int	check_accessible(char **map, t_game *game)
@@ -101,9 +111,10 @@ int	check_accessible(char **map, t_game *game)
 
 int	map_check_path(t_game *game)
 {
-	int		rows;
-	int		cols;
-	char	**map_copy;
+	int			rows;
+	int			cols;
+	char		**map_copy;
+	t_vector2	pos;
 
 	rows = ft_nbrow(game->map.map);
 	cols = ft_strlen(game->map.map[0]);
@@ -113,7 +124,9 @@ int	map_check_path(t_game *game)
 		ft_putstr_fd("Error\nÉchec de la copie de la carte\n", 2);
 		return (0);
 	}
-	flood_fill(map_copy, game->player.pos.x, game->player.pos.y, rows, cols);
+	pos.x = game->player.pos.x;
+	pos.y = game->player.pos.y;
+	flood_fill(map_copy, pos, rows, cols);
 	if (!check_accessible(map_copy, game))
 	{
 		free_map(map_copy);

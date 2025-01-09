@@ -6,7 +6,7 @@
 #    By: ilbonnev <ilbonnev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/29 21:15:06 by ilbonnev          #+#    #+#              #
-#    Updated: 2025/01/08 21:50:37 by ilbonnev         ###   ########.fr        #
+#    Updated: 2025/01/09 14:53:56 by ilbonnev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ LIBFT = libft/libft.a
 LIBMLX = minilibx/libmlx.a
 
 NAME = so_long
-MLX_FLAGS = -L/opt/homebrew/Cellar/libx11/1.8.10/lib -lX11 -lXext -framework OpenGL -framework AppKit -g -fsanitize=address
+MLX_FLAGS = -L/opt/homebrew/Cellar/libx11/1.8.10/lib -lX11 -lXext -framework OpenGL -framework AppKit
+#MLX_FLAGS = -L/usr/lib -L/usr/include/X11 -lX11 -lXext -lGL
 
 all: $(NAME)
 

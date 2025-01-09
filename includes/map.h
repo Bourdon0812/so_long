@@ -6,7 +6,7 @@
 /*   By: ilbonnev <ilbonnev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:40:04 by ilbonnev          #+#    #+#             */
-/*   Updated: 2025/01/09 14:02:36 by ilbonnev         ###   ########.fr       */
+/*   Updated: 2025/01/09 16:23:10 by ilbonnev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,13 @@ int		get_map_size(char *mappath, t_game *game);
 char	*map_to_str(char *mappath, t_game *game);
 int		init_map(t_game *game, char *mapname);
 
+//checker3
+int		map_is_valid2(t_game *game);
+
 //checker2
 int		map_check_exit(char **map, t_game *game);
 int		map_check_collectibles(char **map, t_game *game);
-void	flood_fill(char **map, int x, int y, int rows, int cols);
+void	flood_fill(char **map, t_vector2 pos, int rows, int cols);
 int		check_accessible(char **map, t_game *game);
 int		map_check_path(t_game *game);
 

@@ -6,7 +6,7 @@
 /*   By: ilbonnev <ilbonnev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:15:48 by ilbonnev          #+#    #+#             */
-/*   Updated: 2025/01/08 13:35:48 by ilbonnev         ###   ########.fr       */
+/*   Updated: 2025/01/09 14:58:14 by ilbonnev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	set_player(t_game *game, int x, int y)
 {
 	t_vector2	pos;
 	t_player	player;
+
 	pos.x = x;
 	pos.y = y;
 	player.pos = pos;

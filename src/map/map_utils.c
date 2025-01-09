@@ -6,7 +6,7 @@
 /*   By: ilbonnev <ilbonnev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 16:22:22 by ilbonnev          #+#    #+#             */
-/*   Updated: 2025/01/09 13:58:44 by ilbonnev         ###   ########.fr       */
+/*   Updated: 2025/01/09 15:20:03 by ilbonnev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	print_map(char **map)
 {
-	int row = 0;
+	int	row;
 
+	row = 0;
 	while (map[row] != NULL)
 	{
 		ft_putstr_fd(map[row], 1);
