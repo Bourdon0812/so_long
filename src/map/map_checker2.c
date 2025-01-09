@@ -6,7 +6,7 @@
 /*   By: ilbonnev <ilbonnev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:26:06 by ilbonnev          #+#    #+#             */
-/*   Updated: 2025/01/09 17:00:35 by ilbonnev         ###   ########.fr       */
+/*   Updated: 2025/01/09 21:53:37 by ilbonnev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	flood_fill(char **map, t_vector2 pos, int rows, int cols)
 	flood_fill(map, npos, rows, cols);
 }
 
-int	check_accessible(char **map, t_game *game)
+int	check_accessible(char **map)
 {
 	int	row;
 	int	col;
@@ -127,7 +127,7 @@ int	map_check_path(t_game *game)
 	pos.x = game->player.pos.x;
 	pos.y = game->player.pos.y;
 	flood_fill(map_copy, pos, rows, cols);
-	if (!check_accessible(map_copy, game))
+	if (!check_accessible(map_copy))
 	{
 		free_map(map_copy);
 		ft_putstr_fd("Error\nCollectibles ou sortie inaccessibles\n", 2);

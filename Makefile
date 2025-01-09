@@ -6,12 +6,13 @@
 #    By: ilbonnev <ilbonnev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/29 21:15:06 by ilbonnev          #+#    #+#              #
-#    Updated: 2025/01/09 14:53:56 by ilbonnev         ###   ########.fr        #
+#    Updated: 2025/01/09 21:56:04 by ilbonnev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -arch arm64 #todo wall extra werror
+CFLAGS = -Wall -Werror -Wextra -arch arm64
+#CFLAGS = -Wall -Werror -Wextra
 
 SRCS = src/main.c $(wildcard src/game/*.c) $(wildcard src/map/*.c) $(wildcard src/rendering/*.c)
 OBJS = $(SRCS:.c=.o)
